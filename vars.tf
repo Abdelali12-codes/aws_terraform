@@ -25,3 +25,9 @@ variable "PUBLIC_KEY_PATH" {
 variable "EC2_USER" {
     default = "ec2-user"
 }
+
+variable "HostedZoneId" {
+    
+    type = string
+    default = "Z05045244G4M5OFGHB4C"
+}

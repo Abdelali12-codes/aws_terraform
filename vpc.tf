@@ -28,6 +28,16 @@ resource "aws_subnet" "public-subnet-1" {
     }
 }
 
+resource "aws_subnet" "public-subnet-2" {
+    vpc_id = "${aws_vpc.vpc.id}"
+    cidr_block = "10.0.2.0/24"
+    map_public_ip_on_launch = "true" //it makes this a public subnet
+    availability_zone = "us-west-2b"
+    tags = {
+        Name = "public-subnet-2"
+    }
+}
+
 
 
 resource "aws_route_table" "public-route-table" {
@@ -46,8 +56,13 @@ resource "aws_route_table" "public-route-table" {
 }
 
 
-resource "aws_route_table_association" "route-table-subnets-associated"{
+resource "aws_route_table_association" "route-table-subnets-associated1"{
     subnet_id = "${aws_subnet.public-subnet-1.id}"
+    route_table_id = "${aws_route_table.public-route-table.id}"
+}
+
+resource "aws_route_table_association" "route-table-subnets-associated2"{
+    subnet_id = "${aws_subnet.public-subnet-2.id}"
     route_table_id = "${aws_route_table.public-route-table.id}"
 }
 
