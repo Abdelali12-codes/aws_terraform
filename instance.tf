@@ -1,4 +1,4 @@
-resource "aws_instance" "instance" {
+/*resource "aws_instance" "instance" {
     ami = "${lookup(var.AMI, var.AWS_REGION)}"
     instance_type = "t2.micro"
     # VPC
@@ -29,3 +29,4 @@ resource "aws_key_pair" "instance-key-pair" {
     key_name = "${var.AWS_REGION}-key-pair"
     public_key = "${file(var.PUBLIC_KEY_PATH)}"
 }
+*/
