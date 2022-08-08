@@ -15,7 +15,6 @@ resource "aws_launch_configuration" "as_conf" {
                 EOF
 }
 
-
 resource "aws_autoscaling_group" "autoscaling-group" {
   name                      = "tf-autoscaling-group"
   max_size                  = 5
